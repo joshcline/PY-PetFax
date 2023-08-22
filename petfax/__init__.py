@@ -1,17 +1,16 @@
 from flask import Flask
 
+#factory
 def create_app():
     app = Flask(__name__)
 
-    @app.route('/')
+    @app.route("/")
     def hello():
-        return "Hello PetFax!"
+        return "Hello, PetFax"
     
-    # Register the app
+    #register pet blueprint
     from . import pet
-    from . import facts
     app.register_blueprint(pet.bp)
-    app.register_blueprint(facts.bp)
 
-    # Return app
+    #return the app
     return app
